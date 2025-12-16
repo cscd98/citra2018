@@ -11,6 +11,7 @@
 #include <cstring>
 #include <type_traits>
 #include <vector>
+#include <limits>
 #include "common/common_types.h"
 
 namespace Common {

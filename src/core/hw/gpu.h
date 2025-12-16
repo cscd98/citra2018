@@ -37,6 +37,14 @@ constexpr float SCREEN_REFRESH_RATE = 60;
                               std::size_t>::type) GPU_REG_INDEX(field_name))
 #endif
 
+// Returns index corresponding to the Regs::FramebufferConfig labeled by field_name
+// screen_id is a subscript for Regs::framebuffer_config
+#define GPU_FRAMEBUFFER_REG_INDEX(screen_id, field_name)                                           \
+    ((offsetof(GPU::Regs, framebuffer_config) +                                                    \
+      sizeof(GPU::Regs::FramebufferConfig) * (screen_id) +                                         \
+      offsetof(GPU::Regs::FramebufferConfig, field_name)) /                                        \
+     sizeof(u32))
+
 // MMIO region 0x1EFxxxxx
 struct Regs {
 
